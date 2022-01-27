@@ -13,7 +13,7 @@ public class MarkdownParse {
         
         /*
         int currentIndex = 0;
-        
+
         while(currentIndex < markdown.length()) {
             
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
@@ -22,7 +22,6 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")");
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
-            
         }
         */
 
@@ -30,9 +29,17 @@ public class MarkdownParse {
 
             if(markdown[i].contains("[") && markdown[i].contains("]") 
                 && markdown[i].contains("(") && markdown[i].contains(")")) {
-                int openParen = markdown[i].indexOf("(");
-                int closeParen = markdown[i].lastIndexOf(")");
-                toReturn.add(markdown[i].substring(openParen + 1, closeParen));   
+                
+                String link = markdown[i];
+                int openParen = link.indexOf("(");
+
+                if(link.substring(openParen, link.length() - 1).contains(" ")) {
+                    link = link.substring(0, link.indexOf(" ", openParen));
+                }
+                
+                int closeParen = link.lastIndexOf(")");
+                link = link.substring(openParen + 1, closeParen);
+                toReturn.add(link);  
             }
         }
         return toReturn;

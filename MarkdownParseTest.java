@@ -19,4 +19,12 @@ public class MarkdownParseTest {
         assertEquals("Check second element in ArrayList", "some-page.html", testOutput.get(1));
         assertEquals("ArrayList should only contain two elements", 2, testOutput.size());
     }
+
+    @Test
+    public void testGetLinks2() throws IOException {
+        String fileContents = Files.readString(Path.of("/Users/aprilhsu/Documents/GitHub/markdown-parse/test2.md"));
+        ArrayList<String> testOutput = MarkdownParse.getLinks(fileContents.split("\n"));
+        assertEquals("Check first element in ArrayList", "https://so(meth)ing.com", testOutput.get(0));
+        assertEquals("ArrayList should only contain one element", 1, testOutput.size());
+    }
 }
