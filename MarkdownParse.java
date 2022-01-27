@@ -28,7 +28,8 @@ public class MarkdownParse {
         for(int i=0; i<markdown.length; i++) {
 
             if(markdown[i].contains("[") && markdown[i].contains("]") 
-                && markdown[i].contains("(") && markdown[i].contains(")")) {
+                && markdown[i].contains("(") && markdown[i].contains(")") 
+                && markdown[i].contains(".")) {
                 
                 String link = markdown[i];
                 int openParen = link.indexOf("(");

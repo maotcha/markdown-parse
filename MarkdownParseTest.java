@@ -27,4 +27,11 @@ public class MarkdownParseTest {
         assertEquals("Check first element in ArrayList", "https://so(meth)ing.com", testOutput.get(0));
         assertEquals("ArrayList should only contain one element", 1, testOutput.size());
     }
+
+    @Test
+    public void testGetLinks3() throws IOException {
+        String fileContents = Files.readString(Path.of("/Users/aprilhsu/Documents/GitHub/markdown-parse/test3.md"));
+        ArrayList<String> testOutput = MarkdownParse.getLinks(fileContents.split("\n"));
+        assertTrue("ArrayList should contain no elements", testOutput.isEmpty());
+    }
 }
