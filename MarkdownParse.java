@@ -6,26 +6,42 @@ import java.util.ArrayList;
 
 public class MarkdownParse {
 
-    public static ArrayList<String> getLinks(String markdown) {
+    public static ArrayList<String> getLinks(String[] markdown) {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then take up to
         // the next )
+        
+        /*
         int currentIndex = 0;
+        
         while(currentIndex < markdown.length()) {
+            
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
-            int closeParen = markdown.lastIndexOf(")");
+            int closeParen = markdown.indexOf(")");
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
-            System.out.println(currentIndex);
+            
+        }
+        */
+
+        for(int i=0; i<markdown.length; i++) {
+
+            if(markdown[i].contains("[") && markdown[i].contains("]") 
+                && markdown[i].contains("(") && markdown[i].contains(")")) {
+                int openParen = markdown[i].indexOf("(");
+                int closeParen = markdown[i].lastIndexOf(")");
+                toReturn.add(markdown[i].substring(openParen + 1, closeParen));   
+            }
         }
         return toReturn;
     }
     public static void main(String[] args) throws IOException {
 		Path fileName = Path.of(args[0]);
 	    String contents = Files.readString(fileName);
-        ArrayList<String> links = getLinks(contents);
+        String[] contentsArray = contents.split("\n");
+        ArrayList<String> links = getLinks(contentsArray);
         System.out.println(links);
     }
 }
