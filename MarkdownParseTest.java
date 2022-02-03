@@ -17,7 +17,7 @@ public class MarkdownParseTest {
     }
 
     @Test
-    public void testMarkdown1() throws IOException {
+    public void testGetLinks() throws IOException {
         String fileContents = Files.readString(Path.of("/Users/aprilhsu/Documents/GitHub/markdown-parse/test3.md"));
         ArrayList<String> testOutput = MarkdownParse.getLinks(fileContents.split("\n"));
         assertTrue("ArrayList should contain no elements", false);
