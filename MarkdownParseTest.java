@@ -20,7 +20,7 @@ public class MarkdownParseTest {
     public void testMarkdown1 {
         String fileContents = Files.readString(Path.of("/Users/aprilhsu/Documents/GitHub/markdown-parse/test3.md"));
         ArrayList<String> testOutput = MarkdownParse.getLinks(fileContents.split("\n"));
-        assertFalse("ArrayList should contain no elements", testOutput.isEmpty());
+        assertTrue("ArrayList should contain no elements", testOutput.isEmpty());
     }
 }
 
