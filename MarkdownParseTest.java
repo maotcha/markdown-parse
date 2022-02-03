@@ -18,14 +18,14 @@ public class MarkdownParseTest {
 
     @Test
     public void testGetLinks1() throws IOException {
-        String fileContents = Files.readString(Path.of("/Users/aprilhsu/Documents/GitHub/markdown-parse/test3.md"));
+        String fileContents = Files.readString(Path.of("test3.md"));
         ArrayList<String> testOutput = MarkdownParse.getLinks(fileContents.split("\n"));
         assertTrue("ArrayList should contain no elements", testOutput.isEmpty());
     }
 
     @Test
     public void testGetLinks2() throws IOException {
-        String fileContents = Files.readString(Path.of("/Users/aprilhsu/Documents/GitHub/markdown-parse/test4.md"));
+        String fileContents = Files.readString(Path.of("test4.md"));
         ArrayList<String> testOutput = MarkdownParse.getLinks(fileContents.split("\n"));
         assertEquals("Check first element in array", "math18.com", testOutput.get(0));
         assertEquals("Array should only contain one element", 1, testOutput.size());
