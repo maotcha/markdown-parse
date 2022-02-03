@@ -1,5 +1,21 @@
 import static org.junit.Assert.*;
 import org.junit.*;
+
+public class MarkdownParseTest {
+    @Test
+    public void addition() {
+        assertEquals(2, 1 + 1);
+    }
+
+    @Test
+    public void subtraction() {
+        assertEquals(10, 20-10);
+    }
+}
+
+
+/*import static org.junit.Assert.*;
+import org.junit.*;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -35,3 +51,4 @@ public class MarkdownParseTest {
         assertTrue("ArrayList should contain no elements", testOutput.isEmpty());
     }
 }
+*/
