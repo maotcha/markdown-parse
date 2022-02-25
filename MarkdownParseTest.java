@@ -47,7 +47,7 @@ public class MarkdownParseTest {
         ArrayList<String> testOutput = MarkdownParse.getLinks(fileContents.split("\n"));
         assertEquals("Check first element in array", "a.com", testOutput.get(0));
         assertEquals("Check second element in array", "a.com(())", testOutput.get(1));
-        assertEquals("Check third element in array", "example.edu", testOutput.get(2));
+        assertEquals("Check third element in array", "example.com", testOutput.get(2));
         assertEquals("Array should contain three elements", 3, testOutput.size());
     }
 
