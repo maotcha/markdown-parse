@@ -50,6 +50,14 @@ public class MarkdownParseTest {
         assertEquals("Check third element in array", "example.edu", testOutput.get(2));
         assertEquals("Array should contain three elements", 3, testOutput.size());
     }
+
+    @Test
+    public void testLabReportTest3() throws IOException {
+        String fileContents = Files.readString(Path.of("lab-report-test-3.md"));
+        ArrayList<String> testOutput = MarkdownParse.getLinks(fileContents.split("\n"));
+        assertEquals("Check first element in array", "https://ucsd-cse15l-w22.github.io/", testOutput.get(0));
+        assertEquals("Array should contain one element", 1, testOutput.size());
+    }
 }
 
 
